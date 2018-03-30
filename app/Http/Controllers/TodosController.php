@@ -31,4 +31,11 @@ class TodosController extends Controller
         return view('update')->with('todo', $todo);
     }
 
+    public function save(Request $request, $id) {
+        $todo =TodoMore::find($id);
+        $todo->todo_more = $request->todo_more;
+        $todo->save();
+        return redirect('/todos');
+    }
+
 }
