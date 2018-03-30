@@ -38,4 +38,10 @@ class TodosController extends Controller
         return redirect('/todos');
     }
 
+    public function completed($id) {
+        $todo =TodoMore::find($id);
+        $todo->completed = 1;
+        $todo->save();
+        return redirect()->back();
+    }
 }

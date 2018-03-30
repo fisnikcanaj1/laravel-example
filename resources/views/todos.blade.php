@@ -15,6 +15,12 @@
         <hr>
         {{ $todo_more->todo_more }} <a class="btn btn-danger" href="{{ route('todo.delete', ['id' => $todo_more->id]) }}"> Delete </a>
         <a class="btn btn-info" href="{{ route('todo.update', ['id' => $todo_more->id]) }}"> Update </a>
+
+        @if(!$todo_more->completed)
+         <a class="btn btn-success" href="{{ route('todo.completed', ['id' => $todo_more->id]) }}"> Completed </a>
+        @else
+            <span class="success">Completed</span>
+        @endif
         <hr>
     @endforeach
 @stop
